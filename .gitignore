@@ -1,0 +1,10 @@
+/target
+**/*.log
+**/node_modules
+
+client/out
+client/.vscode-test
+client/*.vsix
+*.py
+
+*.txt

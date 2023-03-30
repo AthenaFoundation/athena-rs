@@ -1,0 +1,14 @@
+---
+source: crates/parser/src/tests.rs
+description: "try {  }\n"
+input_file: crates/parser/test_data/parser/inline/err/ded/0059_try_ded_no_arm.ath
+---
+INFIX_TRY_DED
+  TRY_KW "try"
+  WHITESPACE " "
+  L_CURLY "{"
+  WHITESPACE "  "
+  R_CURLY "}"
+  WHITESPACE "\n"
+error 5: Expected to find at least one arm for the try block
+

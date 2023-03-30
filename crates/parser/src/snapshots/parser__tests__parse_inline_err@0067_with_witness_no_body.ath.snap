@@ -1,0 +1,18 @@
+---
+source: crates/parser/src/tests.rs
+description: "with-witness a b\n"
+input_file: crates/parser/test_data/parser/inline/err/ded/0067_with_witness_no_body.ath
+---
+WITH_WITNESS_DED
+  WITH_WITNESS_KW "with-witness"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "a"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "b"
+  WHITESPACE "\n"
+error 16: expected body for with witness
+

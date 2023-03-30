@@ -1,0 +1,37 @@
+---
+source: crates/parser/src/tests.rs
+description: "datatype-cases { a => (!claim a) }\n"
+input_file: crates/parser/test_data/parser/inline/err/ded/0077_cases_no_phrase.ath
+---
+CASES_DED
+  DATATYPE_CASES_KW "datatype-cases"
+  WHITESPACE " "
+  L_CURLY "{"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "a"
+  WHITESPACE " "
+  RESTRICTED_MATCH_DED
+    FAT_ARROW "=>"
+    WHITESPACE " "
+    BANG_METHOD_CALL_DED
+      L_PAREN "("
+      BANG "!"
+      IDENT_EXPR
+        NAME_REF
+          IDENT "claim"
+      WHITESPACE " "
+      IDENT_EXPR
+        NAME_REF
+          IDENT "a"
+      R_PAREN ")"
+  WHITESPACE " "
+  R_CURLY "}"
+  WHITESPACE "\n"
+error 18: expected `from` or `by` or `on`
+error 18: expected at least one inference
+error 18: expected deduction
+error 18: expected L_CURLY
+error 19: expected pattern in match arm
+

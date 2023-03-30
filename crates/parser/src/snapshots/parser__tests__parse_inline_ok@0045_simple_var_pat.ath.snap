@@ -1,0 +1,14 @@
+---
+source: crates/parser/src/tests.rs
+description: "?foo:Int\n"
+input_file: crates/parser/test_data/parser/inline/ok/pat/0045_simple_var_pat.ath
+---
+VAR_PAT
+  QUESTION "?"
+  IDENT "foo"
+  COLON ":"
+  IDENT_SORT
+    NAME_REF
+      IDENT "Int"
+  WHITESPACE "\n"
+

@@ -1,0 +1,26 @@
+---
+source: crates/parser/src/tests.rs
+description: "(B (!claim A))\n"
+input_file: crates/parser/test_data/parser/inline/err/ded/0137_by_ded_no_by.ath
+---
+BY_DED
+  L_PAREN "("
+  IDENT_EXPR
+    NAME_REF
+      IDENT "B"
+  WHITESPACE " "
+  BANG_METHOD_CALL_DED
+    L_PAREN "("
+    BANG "!"
+    IDENT_EXPR
+      NAME_REF
+        IDENT "claim"
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "A"
+    R_PAREN ")"
+  R_PAREN ")"
+  WHITESPACE "\n"
+error 2: expected to find `by`
+

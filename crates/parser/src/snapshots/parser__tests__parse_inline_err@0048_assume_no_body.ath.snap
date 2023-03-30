@@ -1,0 +1,14 @@
+---
+source: crates/parser/src/tests.rs
+description: "assume a\n"
+input_file: crates/parser/test_data/parser/inline/err/ded/0048_assume_no_body.ath
+---
+ASSUME_DED
+  ASSUME_KW "assume"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "a"
+  WHITESPACE "\n"
+error 8: expected body for assumption
+

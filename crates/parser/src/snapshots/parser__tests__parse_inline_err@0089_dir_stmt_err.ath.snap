@@ -1,0 +1,10 @@
+---
+source: crates/parser/src/tests.rs
+description: "domain\n"
+input_file: crates/parser/test_data/parser/inline/err/stmt/0089_dir_stmt_err.ath
+---
+DOMAIN_DIR
+  DOMAIN_KW "domain"
+  WHITESPACE "\n"
+error 6: expected domain sort declaration
+

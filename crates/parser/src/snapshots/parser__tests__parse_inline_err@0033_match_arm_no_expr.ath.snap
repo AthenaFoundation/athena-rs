@@ -1,0 +1,25 @@
+---
+source: crates/parser/src/tests.rs
+description: "match foo { bar => }\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0033_match_arm_no_expr.ath
+---
+INFIX_MATCH_EXPR
+  MATCH_KW "match"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "foo"
+  WHITESPACE " "
+  L_CURLY "{"
+  WHITESPACE " "
+  MATCH_ARM
+    IDENT_PAT
+      NAME
+        IDENT "bar"
+    WHITESPACE " "
+    FAT_ARROW "=>"
+  WHITESPACE " "
+  R_CURLY "}"
+  WHITESPACE "\n"
+error 18: Expected to find an expression for the match arm
+

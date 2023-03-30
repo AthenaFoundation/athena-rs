@@ -1,0 +1,36 @@
+---
+source: crates/parser/src/tests.rs
+description: "let { foo := (!claim A) } qwer\n"
+input_file: crates/parser/test_data/parser/inline/ok/expr/0116_let_expr_with_phrase_binding.ath
+---
+LET_EXPR
+  LET_KW "let"
+  WHITESPACE " "
+  L_CURLY "{"
+  WHITESPACE " "
+  LET_PART
+    IDENT_PAT
+      NAME
+        IDENT "foo"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    BANG_METHOD_CALL_DED
+      L_PAREN "("
+      BANG "!"
+      IDENT_EXPR
+        NAME_REF
+          IDENT "claim"
+      WHITESPACE " "
+      IDENT_EXPR
+        NAME_REF
+          IDENT "A"
+      R_PAREN ")"
+  WHITESPACE " "
+  R_CURLY "}"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "qwer"
+  WHITESPACE "\n"
+

@@ -1,0 +1,67 @@
+---
+source: crates/parser/src/tests.rs
+description: "datatypes Foo := bar | (baz num:Int) && Baz := quz | (qux val:Int)\n"
+input_file: crates/parser/test_data/parser/inline/ok/stmt/0105_datatypes_stmt.ath
+---
+DATATYPES_STMT
+  DATATYPES_KW "datatypes"
+  WHITESPACE " "
+  STRUCTURE_DEF
+    STRUCTURE_NAME_DEF
+      IDENT_SORT_DECL
+        NAME
+          IDENT "Foo"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    CONSTANT_CONSTRUCTOR
+      NAME
+        IDENT "bar"
+    WHITESPACE " "
+    PIPE "|"
+    WHITESPACE " "
+    COMPOUND_CONSTRUCTOR
+      L_PAREN "("
+      NAME
+        IDENT "baz"
+      WHITESPACE " "
+      MAYBE_TAGGED_FIELD_SORT
+        NAME
+          IDENT "num"
+        COLON ":"
+        IDENT_SORT
+          NAME_REF
+            IDENT "Int"
+      R_PAREN ")"
+  WHITESPACE " "
+  AMP2 "&&"
+  WHITESPACE " "
+  STRUCTURE_DEF
+    STRUCTURE_NAME_DEF
+      IDENT_SORT_DECL
+        NAME
+          IDENT "Baz"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    CONSTANT_CONSTRUCTOR
+      NAME
+        IDENT "quz"
+    WHITESPACE " "
+    PIPE "|"
+    WHITESPACE " "
+    COMPOUND_CONSTRUCTOR
+      L_PAREN "("
+      NAME
+        IDENT "qux"
+      WHITESPACE " "
+      MAYBE_TAGGED_FIELD_SORT
+        NAME
+          IDENT "val"
+        COLON ":"
+        IDENT_SORT
+          NAME_REF
+            IDENT "Int"
+      R_PAREN ")"
+  WHITESPACE "\n"
+

@@ -1,0 +1,15 @@
+---
+source: crates/parser/src/tests.rs
+description: "with-witness a\n"
+input_file: crates/parser/test_data/parser/inline/err/ded/0069_with_witness_no_phrase.ath
+---
+WITH_WITNESS_DED
+  WITH_WITNESS_KW "with-witness"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "a"
+  WHITESPACE "\n"
+error 14: expected phrase in with witness binding
+error 14: expected body for with witness
+

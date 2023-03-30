@@ -1,0 +1,25 @@
+---
+source: crates/parser/src/tests.rs
+description: "let { foo :=   } a\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0115_let_part_no_phrase.ath
+---
+LET_EXPR
+  LET_KW "let"
+  WHITESPACE " "
+  L_CURLY "{"
+  WHITESPACE " "
+  LET_PART
+    IDENT_PAT
+      NAME
+        IDENT "foo"
+    WHITESPACE " "
+    COLON_EQ ":="
+  WHITESPACE "   "
+  R_CURLY "}"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "a"
+  WHITESPACE "\n"
+error 12: Expected to find a phrase for the let binding
+

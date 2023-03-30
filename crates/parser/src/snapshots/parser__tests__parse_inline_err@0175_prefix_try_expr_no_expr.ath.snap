@@ -1,0 +1,15 @@
+---
+source: crates/parser/src/tests.rs
+description: "(try domain)\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0175_prefix_try_expr_no_expr.ath
+---
+PREFIX_TRY_EXPR
+  L_PAREN "("
+  TRY_KW "try"
+  WHITESPACE " "
+  ERROR
+    DOMAIN_KW "domain"
+  R_PAREN ")"
+  WHITESPACE "\n"
+error 5: Expected to find an expression to try
+

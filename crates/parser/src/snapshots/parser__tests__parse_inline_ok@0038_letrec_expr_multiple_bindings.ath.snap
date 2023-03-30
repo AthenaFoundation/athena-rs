@@ -1,0 +1,46 @@
+---
+source: crates/parser/src/tests.rs
+description: "letrec { foo := bar ; baz := (myfun \"cool\") } foo\n"
+input_file: crates/parser/test_data/parser/inline/ok/expr/0038_letrec_expr_multiple_bindings.ath
+---
+LET_REC_EXPR
+  LETREC_KW "letrec"
+  WHITESPACE " "
+  L_CURLY "{"
+  WHITESPACE " "
+  LET_REC_PART
+    NAME
+      IDENT "foo"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "bar"
+  WHITESPACE " "
+  LET_REC_PART
+    SEMI ";"
+    WHITESPACE " "
+    NAME
+      IDENT "baz"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    APPLICATION_EXPR
+      L_PAREN "("
+      IDENT_EXPR
+        NAME_REF
+          IDENT "myfun"
+      WHITESPACE " "
+      LITERAL_EXPR
+        LITERAL
+          STRING "\"cool\""
+      R_PAREN ")"
+  WHITESPACE " "
+  R_CURLY "}"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "foo"
+  WHITESPACE "\n"
+

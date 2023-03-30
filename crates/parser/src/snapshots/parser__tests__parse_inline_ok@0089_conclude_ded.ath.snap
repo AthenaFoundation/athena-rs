@@ -1,0 +1,25 @@
+---
+source: crates/parser/src/tests.rs
+description: "conclude A\n (!claim A)\n"
+input_file: crates/parser/test_data/parser/inline/ok/ded/0089_conclude_ded.ath
+---
+CONCLUDE_DED
+  CONCLUDE_KW "conclude"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "A"
+  WHITESPACE "\n "
+  BANG_METHOD_CALL_DED
+    L_PAREN "("
+    BANG "!"
+    IDENT_EXPR
+      NAME_REF
+        IDENT "claim"
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "A"
+    R_PAREN ")"
+  WHITESPACE "\n"
+

@@ -1,0 +1,31 @@
+---
+source: crates/parser/src/tests.rs
+description: "define ( as [a]) := true)\n"
+input_file: crates/parser/test_data/parser/inline/err/dir/0119_define_named_no_name.ath
+---
+ERROR
+  INFIX_DEFINE_DIR
+    DEFINE_KW "define"
+    WHITESPACE " "
+    DEFINE_NAMED_PATTERN
+      L_PAREN "("
+      WHITESPACE " "
+      AS_KW "as"
+      WHITESPACE " "
+      LIST_PAT
+        L_BRACK "["
+        IDENT_PAT
+          NAME
+            IDENT "a"
+        R_BRACK "]"
+      R_PAREN ")"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "true"
+  R_PAREN ")"
+  WHITESPACE "\n"
+error 8: expected name for define
+

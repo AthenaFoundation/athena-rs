@@ -1,0 +1,37 @@
+---
+source: crates/parser/src/tests.rs
+description: "let { a := b; c := d }\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0055_let_expr_no_body.ath
+---
+LET_EXPR
+  LET_KW "let"
+  WHITESPACE " "
+  L_CURLY "{"
+  WHITESPACE " "
+  LET_PART
+    IDENT_PAT
+      NAME
+        IDENT "a"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "b"
+  LET_PART
+    SEMI ";"
+    WHITESPACE " "
+    IDENT_PAT
+      NAME
+        IDENT "c"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "d"
+  WHITESPACE " "
+  R_CURLY "}"
+  WHITESPACE "\n"
+error 22: Expected a let body
+

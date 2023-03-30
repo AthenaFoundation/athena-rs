@@ -1,0 +1,19 @@
+---
+source: crates/parser/src/tests.rs
+description: "|{ foo := }|\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0120_map_binding_no_value.ath
+---
+MAP_EXPR
+  PIPE_CURLY "|{"
+  WHITESPACE " "
+  MAP_BINDING
+    IDENT_EXPR
+      NAME_REF
+        IDENT "foo"
+    WHITESPACE " "
+    COLON_EQ ":="
+  WHITESPACE " "
+  CURLY_PIPE "}|"
+  WHITESPACE "\n"
+error 9: expected expression
+

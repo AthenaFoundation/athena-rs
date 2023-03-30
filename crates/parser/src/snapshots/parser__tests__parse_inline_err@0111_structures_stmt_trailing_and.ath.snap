@@ -1,0 +1,24 @@
+---
+source: crates/parser/src/tests.rs
+description: "structures Foo := bar &&\n"
+input_file: crates/parser/test_data/parser/inline/err/stmt/0111_structures_stmt_trailing_and.ath
+---
+STRUCTURES_STMT
+  STRUCTURES_KW "structures"
+  WHITESPACE " "
+  STRUCTURE_DEF
+    STRUCTURE_NAME_DEF
+      IDENT_SORT_DECL
+        NAME
+          IDENT "Foo"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    CONSTANT_CONSTRUCTOR
+      NAME
+        IDENT "bar"
+  WHITESPACE " "
+  AMP2 "&&"
+  WHITESPACE "\n"
+error 24: expected a structure definition following the `&&`
+

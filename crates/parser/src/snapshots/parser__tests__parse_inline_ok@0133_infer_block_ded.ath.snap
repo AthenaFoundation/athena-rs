@@ -1,0 +1,110 @@
+---
+source: crates/parser/src/tests.rs
+description: "{\n  foo := A from B, C;\n  bar := D by E on F, G;\n  baz:(OP 2) := (!claim X);\n  (!claim Z)\n}\n"
+input_file: crates/parser/test_data/parser/inline/ok/ded/0133_infer_block_ded.ath
+---
+INFER_BLOCK_DED
+  L_CURLY "{"
+  WHITESPACE "\n  "
+  MAYBE_NAMED_INFERENCE
+    MAYBE_WILDCARD_OP_ANNOTATED_PARAM
+      NAME
+        IDENT "foo"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    INFERENCE
+      INFER_FROM
+        IDENT_EXPR
+          NAME_REF
+            IDENT "A"
+        WHITESPACE " "
+        FROM_KW "from"
+        WHITESPACE " "
+        IDENT_EXPR
+          NAME_REF
+            IDENT "B"
+        COMMA ","
+        WHITESPACE " "
+        IDENT_EXPR
+          NAME_REF
+            IDENT "C"
+  SEMI ";"
+  WHITESPACE "\n  "
+  MAYBE_NAMED_INFERENCE
+    MAYBE_WILDCARD_OP_ANNOTATED_PARAM
+      NAME
+        IDENT "bar"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    INFERENCE
+      INFER_BY
+        IDENT_EXPR
+          NAME_REF
+            IDENT "D"
+        WHITESPACE " "
+        BY_KW "by"
+        WHITESPACE " "
+        IDENT_EXPR
+          NAME_REF
+            IDENT "E"
+        WHITESPACE " "
+        ON_KW "on"
+        WHITESPACE " "
+        IDENT_EXPR
+          NAME_REF
+            IDENT "F"
+        COMMA ","
+        WHITESPACE " "
+        IDENT_EXPR
+          NAME_REF
+            IDENT "G"
+  SEMI ";"
+  WHITESPACE "\n  "
+  MAYBE_NAMED_INFERENCE
+    MAYBE_WILDCARD_OP_ANNOTATED_PARAM
+      OP_ANNOTATED_PARAM
+        NAME
+          IDENT "baz"
+        COLON ":"
+        L_PAREN "("
+        O_P_KW "OP"
+        WHITESPACE " "
+        NAME_REF
+          IDENT "2"
+        R_PAREN ")"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    INFERENCE
+      BANG_METHOD_CALL_DED
+        L_PAREN "("
+        BANG "!"
+        IDENT_EXPR
+          NAME_REF
+            IDENT "claim"
+        WHITESPACE " "
+        IDENT_EXPR
+          NAME_REF
+            IDENT "X"
+        R_PAREN ")"
+  SEMI ";"
+  WHITESPACE "\n  "
+  MAYBE_NAMED_INFERENCE
+    INFERENCE
+      BANG_METHOD_CALL_DED
+        L_PAREN "("
+        BANG "!"
+        IDENT_EXPR
+          NAME_REF
+            IDENT "claim"
+        WHITESPACE " "
+        IDENT_EXPR
+          NAME_REF
+            IDENT "Z"
+        R_PAREN ")"
+  WHITESPACE "\n"
+  R_CURLY "}"
+  WHITESPACE "\n"
+

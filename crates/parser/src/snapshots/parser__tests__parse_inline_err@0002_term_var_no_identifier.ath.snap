@@ -1,0 +1,15 @@
+---
+source: crates/parser/src/tests.rs
+description: "? :bar\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0002_term_var_no_identifier.ath
+---
+TERM_VAR_EXPR
+  QUESTION "?"
+  WHITESPACE " "
+  COLON ":"
+  IDENT_SORT
+    NAME_REF
+      IDENT "bar"
+  WHITESPACE "\n"
+error 1: Expected to find an identifier for the term variable
+

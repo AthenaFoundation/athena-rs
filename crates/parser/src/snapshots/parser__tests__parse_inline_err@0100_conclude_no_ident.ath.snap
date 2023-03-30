@@ -1,0 +1,58 @@
+---
+source: crates/parser/src/tests.rs
+description: "conclude := (factorial (zero - one) <= factorial zero)\n (!force base_case)\n"
+input_file: crates/parser/test_data/parser/inline/err/ded/0100_conclude_no_ident.ath
+---
+CONCLUDE_DED
+  CONCLUDE_KW "conclude"
+  WHITESPACE " "
+  COLON_EQ ":="
+  WHITESPACE " "
+  APPLICATION_EXPR
+    L_PAREN "("
+    IDENT_EXPR
+      NAME_REF
+        IDENT "factorial"
+    WHITESPACE " "
+    APPLICATION_EXPR
+      L_PAREN "("
+      IDENT_EXPR
+        NAME_REF
+          IDENT "zero"
+      WHITESPACE " "
+      IDENT_EXPR
+        NAME_REF
+          IDENT "-"
+      WHITESPACE " "
+      IDENT_EXPR
+        NAME_REF
+          IDENT "one"
+      R_PAREN ")"
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "<="
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "factorial"
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "zero"
+    R_PAREN ")"
+  WHITESPACE "\n "
+  BANG_METHOD_CALL_DED
+    L_PAREN "("
+    BANG "!"
+    IDENT_EXPR
+      NAME_REF
+        IDENT "force"
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "base_case"
+    R_PAREN ")"
+  WHITESPACE "\n"
+error 8: expected identifier in conclude deduction
+

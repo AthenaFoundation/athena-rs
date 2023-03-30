@@ -1,0 +1,41 @@
+---
+source: crates/parser/src/tests.rs
+description: "define [foo bar baz] := [true false true]\n"
+input_file: crates/parser/test_data/parser/inline/ok/dir/0083_define_multi.ath
+---
+INFIX_DEFINE_DIR
+  DEFINE_KW "define"
+  WHITESPACE " "
+  LIST_PAT
+    L_BRACK "["
+    IDENT_PAT
+      NAME
+        IDENT "foo"
+    WHITESPACE " "
+    IDENT_PAT
+      NAME
+        IDENT "bar"
+    WHITESPACE " "
+    IDENT_PAT
+      NAME
+        IDENT "baz"
+    R_BRACK "]"
+  WHITESPACE " "
+  COLON_EQ ":="
+  WHITESPACE " "
+  LIST_EXPR
+    L_BRACK "["
+    IDENT_EXPR
+      NAME_REF
+        IDENT "true"
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "false"
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "true"
+    R_BRACK "]"
+  WHITESPACE "\n"
+

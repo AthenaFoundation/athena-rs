@@ -1,0 +1,42 @@
+---
+source: crates/parser/src/tests.rs
+description: "check { foo => (!claim A)\n| baz => }\n"
+input_file: crates/parser/test_data/parser/inline/err/ded/0051_check_arm_no_ded.ath
+---
+INFIX_CHECK_DED
+  CHECK_KW "check"
+  WHITESPACE " "
+  L_CURLY "{"
+  WHITESPACE " "
+  CHECK_DED_ARM
+    IDENT_EXPR
+      NAME_REF
+        IDENT "foo"
+    WHITESPACE " "
+    FAT_ARROW "=>"
+    WHITESPACE " "
+    BANG_METHOD_CALL_DED
+      L_PAREN "("
+      BANG "!"
+      IDENT_EXPR
+        NAME_REF
+          IDENT "claim"
+      WHITESPACE " "
+      IDENT_EXPR
+        NAME_REF
+          IDENT "A"
+      R_PAREN ")"
+  WHITESPACE "\n"
+  CHECK_DED_ARM
+    PIPE "|"
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "baz"
+    WHITESPACE " "
+    FAT_ARROW "=>"
+  WHITESPACE " "
+  R_CURLY "}"
+  WHITESPACE "\n"
+error 34: Expected a check arm body
+

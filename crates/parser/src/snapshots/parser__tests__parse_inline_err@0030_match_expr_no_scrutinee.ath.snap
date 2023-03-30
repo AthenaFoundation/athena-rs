@@ -1,0 +1,26 @@
+---
+source: crates/parser/src/tests.rs
+description: "match { foo => bar }\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0030_match_expr_no_scrutinee.ath
+---
+ERROR
+  INFIX_MATCH_EXPR
+    MATCH_KW "match"
+    WHITESPACE " "
+    L_CURLY "{"
+    WHITESPACE " "
+    IDENT_EXPR
+      NAME_REF
+        IDENT "foo"
+  WHITESPACE " "
+  FAT_ARROW "=>"
+  WHITESPACE " "
+  IDENT "bar"
+  WHITESPACE " "
+  R_CURLY "}"
+  WHITESPACE "\n"
+error 11: expected `from` or `by` or `on`
+error 11: expected at least one inference
+error 11: expected deduction
+error 11: Expected to find clauses for the match
+

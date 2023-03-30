@@ -1,0 +1,22 @@
+---
+source: crates/parser/src/tests.rs
+description: "(overload  (a domain))\n"
+input_file: crates/parser/test_data/parser/inline/err/dir/0189_phrase_pair_no_second_phrase.ath
+---
+OVERLOAD_MULTI
+  L_PAREN "("
+  OVERLOAD_KW "overload"
+  WHITESPACE "  "
+  PHRASE_PAIR
+    L_PAREN "("
+    IDENT_EXPR
+      NAME_REF
+        IDENT "a"
+    WHITESPACE " "
+    ERROR
+      DOMAIN_KW "domain"
+    R_PAREN ")"
+  R_PAREN ")"
+  WHITESPACE "\n"
+error 14: Expected a second phrase in the phrase pair
+

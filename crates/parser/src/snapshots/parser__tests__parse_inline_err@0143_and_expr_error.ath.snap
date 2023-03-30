@@ -1,0 +1,23 @@
+---
+source: crates/parser/src/tests.rs
+description: "(&& bar domain D)\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0143_and_expr_error.ath
+---
+AND_EXPR
+  L_PAREN "("
+  AMP2 "&&"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "bar"
+  WHITESPACE " "
+  ERROR
+    DOMAIN_KW "domain"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "D"
+  R_PAREN ")"
+  WHITESPACE "\n"
+error 8: Expected to find a phrase in the and expression
+

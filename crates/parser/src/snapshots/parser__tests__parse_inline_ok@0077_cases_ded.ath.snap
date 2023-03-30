@@ -1,0 +1,36 @@
+---
+source: crates/parser/src/tests.rs
+description: "datatype-cases a { foo => (!claim foo) }\n"
+input_file: crates/parser/test_data/parser/inline/ok/ded/0077_cases_ded.ath
+---
+CASES_DED
+  DATATYPE_CASES_KW "datatype-cases"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "a"
+  WHITESPACE " "
+  L_CURLY "{"
+  WHITESPACE " "
+  RESTRICTED_MATCH_DED
+    IDENT_PAT
+      NAME
+        IDENT "foo"
+    WHITESPACE " "
+    FAT_ARROW "=>"
+    WHITESPACE " "
+    BANG_METHOD_CALL_DED
+      L_PAREN "("
+      BANG "!"
+      IDENT_EXPR
+        NAME_REF
+          IDENT "claim"
+      WHITESPACE " "
+      IDENT_EXPR
+        NAME_REF
+          IDENT "foo"
+      R_PAREN ")"
+  WHITESPACE " "
+  R_CURLY "}"
+  WHITESPACE "\n"
+

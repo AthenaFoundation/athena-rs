@@ -1,0 +1,16 @@
+---
+source: crates/parser/src/tests.rs
+description: "define := true\n"
+input_file: crates/parser/test_data/parser/inline/err/dir/0082_define_no_name.ath
+---
+INFIX_DEFINE_DIR
+  DEFINE_KW "define"
+  WHITESPACE " "
+  COLON_EQ ":="
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "true"
+  WHITESPACE "\n"
+error 6: expected definition name
+

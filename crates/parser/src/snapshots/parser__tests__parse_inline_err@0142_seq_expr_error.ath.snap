@@ -1,0 +1,23 @@
+---
+source: crates/parser/src/tests.rs
+description: "(seq bar domain D)\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0142_seq_expr_error.ath
+---
+SEQ_EXPR
+  L_PAREN "("
+  SEQ_KW "seq"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "bar"
+  WHITESPACE " "
+  ERROR
+    DOMAIN_KW "domain"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "D"
+  R_PAREN ")"
+  WHITESPACE "\n"
+error 9: Expected to find a phrase in the seq expression
+

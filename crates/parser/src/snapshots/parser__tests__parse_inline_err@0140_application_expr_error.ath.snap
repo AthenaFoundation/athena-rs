@@ -1,0 +1,21 @@
+---
+source: crates/parser/src/tests.rs
+description: "(foo domain D)\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0140_application_expr_error.ath
+---
+APPLICATION_EXPR
+  L_PAREN "("
+  IDENT_EXPR
+    NAME_REF
+      IDENT "foo"
+  WHITESPACE " "
+  ERROR
+    DOMAIN_KW "domain"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "D"
+  R_PAREN ")"
+  WHITESPACE "\n"
+error 5: Expected to find a phrase for the application argument
+

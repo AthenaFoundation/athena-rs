@@ -1,0 +1,18 @@
+---
+source: crates/parser/src/tests.rs
+description: "let {  } foo\n"
+input_file: crates/parser/test_data/parser/inline/err/expr/0024_let_expr_no_part.ath
+---
+LET_EXPR
+  LET_KW "let"
+  WHITESPACE " "
+  L_CURLY "{"
+  WHITESPACE "  "
+  R_CURLY "}"
+  WHITESPACE " "
+  IDENT_EXPR
+    NAME_REF
+      IDENT "foo"
+  WHITESPACE "\n"
+error 5: Expected to find at least one binding for the let expression
+

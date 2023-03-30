@@ -1,0 +1,15 @@
+[workspace]
+members = ["crates/*", "xtask"]
+
+[workspace.package]
+authors = ["Nathan Whitaker <nathanwhit>"]
+
+[profile.dev.package.insta]
+opt-level = 3
+
+[workspace.dependencies]
+syntax = { path = "crates/syntax" }
+parser = { path = "crates/parser" }
+insta = { version = "1.28.0", features = ["glob"] }
+drop_bomb = "0.1.5"
+itertools = "0.10.5"

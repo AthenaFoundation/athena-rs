@@ -1,0 +1,14 @@
+---
+source: crates/parser/src/tests.rs
+description: "?foo:bar\n"
+input_file: crates/parser/test_data/parser/inline/ok/expr/0004_simple_term_var_expr.ath
+---
+TERM_VAR_EXPR
+  QUESTION "?"
+  IDENT "foo"
+  COLON ":"
+  IDENT_SORT
+    NAME_REF
+      IDENT "bar"
+  WHITESPACE "\n"
+

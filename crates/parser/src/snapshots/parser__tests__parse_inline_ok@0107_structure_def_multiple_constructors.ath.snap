@@ -1,0 +1,43 @@
+---
+source: crates/parser/src/tests.rs
+description: "datatype Foo := bar | baz | (quz num:Int)\n"
+input_file: crates/parser/test_data/parser/inline/ok/stmt/0107_structure_def_multiple_constructors.ath
+---
+DATATYPE_STMT
+  DATATYPE_KW "datatype"
+  WHITESPACE " "
+  STRUCTURE_DEF
+    STRUCTURE_NAME_DEF
+      IDENT_SORT_DECL
+        NAME
+          IDENT "Foo"
+    WHITESPACE " "
+    COLON_EQ ":="
+    WHITESPACE " "
+    CONSTANT_CONSTRUCTOR
+      NAME
+        IDENT "bar"
+    WHITESPACE " "
+    PIPE "|"
+    WHITESPACE " "
+    CONSTANT_CONSTRUCTOR
+      NAME
+        IDENT "baz"
+    WHITESPACE " "
+    PIPE "|"
+    WHITESPACE " "
+    COMPOUND_CONSTRUCTOR
+      L_PAREN "("
+      NAME
+        IDENT "quz"
+      WHITESPACE " "
+      MAYBE_TAGGED_FIELD_SORT
+        NAME
+          IDENT "num"
+        COLON ":"
+        IDENT_SORT
+          NAME_REF
+            IDENT "Int"
+      R_PAREN ")"
+  WHITESPACE "\n"
+

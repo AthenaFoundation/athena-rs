@@ -1,0 +1,15 @@
+---
+source: crates/parser/src/tests.rs
+description: "define foo :=\n"
+input_file: crates/parser/test_data/parser/inline/err/dir/0081_define_empty.ath
+---
+INFIX_DEFINE_DIR
+  DEFINE_KW "define"
+  WHITESPACE " "
+  NAME
+    IDENT "foo"
+  WHITESPACE " "
+  COLON_EQ ":="
+  WHITESPACE "\n"
+error 13: expected definition value
+

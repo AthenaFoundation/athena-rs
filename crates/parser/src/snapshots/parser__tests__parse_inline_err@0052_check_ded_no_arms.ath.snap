@@ -1,0 +1,15 @@
+---
+source: crates/parser/src/tests.rs
+description: "check { }\n"
+input_file: crates/parser/test_data/parser/inline/err/ded/0052_check_ded_no_arms.ath
+---
+ERROR
+  INFIX_CHECK_DED
+    CHECK_KW "check"
+    WHITESPACE " "
+    L_CURLY "{"
+  WHITESPACE " "
+  R_CURLY "}"
+  WHITESPACE "\n"
+error 7: Expected at least one arm in the check expression
+
